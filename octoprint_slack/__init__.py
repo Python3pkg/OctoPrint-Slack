@@ -1,5 +1,5 @@
 # coding=utf-8
-from __future__ import absolute_import
+
 
 import octoprint.plugin
 import os
@@ -154,7 +154,7 @@ class SlackPlugin(octoprint.plugin.SettingsPlugin,
             self._logger.debug("Attempting post of Slack message: {}".format(message))
             try:
                 res = requests.post(webhook_url, data=json.dumps(message))
-            except Exception, e:
+            except Exception as e:
                 self._logger.exception("An error occurred connecting to Slack:\n {}".format(e.message))
                 return
 
